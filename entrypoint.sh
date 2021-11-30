@@ -6,13 +6,13 @@ echo "git version: $(git --version)"
 
 
 
-if [[ -z "${TARGET_REPO}"]]; then
+if [[ -z "${TARGET_REPO}" ]]; then
     PUSH_REPO="${GITHUB_REPOSITORY}"
 else
     PUSH_REPO="TARGET_REPO"
 fi
 
-if [[ -z "${TARGET_BRANCH}"]]
+if [[ -z "${TARGET_BRANCH}" ]]; then
     PUSH_BRANCH="master"
 else
     PUSH_BRANCH=${TARGET_BRANCH}
@@ -34,6 +34,7 @@ if [[ -z "$COMMIT_MESSAGE" ]]; then
   COMMIT_MESSAGE="Automated deployment @ $(date '+%Y-%m-%d %H:%M:%S')" 
 fi
 
+git add .
 git commit -m "${COMMIT_MESSAGE}"
 
 

@@ -1,0 +1,7 @@
+# action.yml
+name: 'git_push_action'
+description: 'Push git repository'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

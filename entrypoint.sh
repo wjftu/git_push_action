@@ -12,7 +12,7 @@ else
     PUSH_REPO="TARGET_REPO"
 fi
 
-if [[ -z "${TARGET_BRANCH}"]]
+if [[ -z "${TARGET_BRANCH}"]]; then
     PUSH_BRANCH="master"
 else
     PUSH_BRANCH=${TARGET_BRANCH}

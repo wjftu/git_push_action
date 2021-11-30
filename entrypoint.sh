@@ -7,9 +7,9 @@ echo "git version: $(git --version)"
 
 
 if [[ -z "${TARGET_REPO}" ]]; then
-    PUSH_REPO="${GITHUB_REPOSITORY}"
+    PUSH_REPO=${GITHUB_REPOSITORY}
 else
-    PUSH_REPO="TARGET_REPO"
+    PUSH_REPO=${TARGET_REPO}
 fi
 
 if [[ -z "${TARGET_BRANCH}" ]]; then
@@ -25,10 +25,10 @@ echo "target branch: ${PUSH_BRANCH}"
 
 cd ${SOURCE_DIR}
 
+git config --global init.defaultBranch master
+git config --global user.name "${GITHUB_ACTOR}"
+git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git init
-git config user.name "${GITHUB_ACTOR}"
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-
 
 if [[ -z "$COMMIT_MESSAGE" ]]; then
   COMMIT_MESSAGE="Automated deployment @ $(date '+%Y-%m-%d %H:%M:%S')" 
